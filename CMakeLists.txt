@@ -32,7 +32,7 @@ target_link_libraries(
 
 install(DIRECTORY ${PROJECT_SOURCE_DIR}/data DESTINATION share/meandmyshadow/)
 install(TARGETS meandmyshadow RUNTIME DESTINATION bin)
-if("${CMAKE_SYSTEM_NAME}" MATCHES "Linux") 
+if("${CMAKE_SYSTEM_NAME}" MATCHES "Linux")
 	install(FILES meandmyshadow.desktop DESTINATION share/applications/)
 	install(FILES icons/16x16/meandmyshadow.png DESTINATION share/icons/hicolor/16x16/apps/)
 	install(FILES icons/32x32/meandmyshadow.png DESTINATION share/icons/hicolor/32x32/apps/)
@@ -41,6 +41,7 @@ if("${CMAKE_SYSTEM_NAME}" MATCHES "Linux")
 endif("${CMAKE_SYSTEM_NAME}" MATCHES "Linux")
 
 target_link_libraries(meandmyshadow "-O3")
+target_link_libraries(meandmyshadow "-sFS_DEBUG")
 target_link_libraries(meandmyshadow "--preload-file data")
 target_link_libraries(meandmyshadow "--pre-js pre.js")
 target_link_libraries(meandmyshadow "-sTOTAL_MEMORY=33554432")
